@@ -1,0 +1,77 @@
+{
+  "name": "experimental-dashboards",
+  "version": "1.0.0",
+  "description": "Produces multiple experimental dashboards with various approaches",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": "10.9.2"
+  },
+  "volta": {
+    "node": "22.13.1",
+    "npm": "10.9.2"
+  },
+  "scripts": {
+    "bump:release": "npmversion --unpreid",
+    "bump:major": "npmversion --increment major",
+    "bump:minor": "npmversion --increment minor",
+    "bump:patch": "npmversion --increment patch",
+    "bump:major:beta": "npmversion --increment major --preid beta",
+    "bump:minor:beta": "npmversion --increment minor --preid beta",
+    "bump:patch:beta": "npmversion --increment patch --preid beta",
+    "bump:prerelease:beta": "npmversion --increment prerelease --preid beta",
+    "dev:audit": "npm audit --workspaces --include-workspace-root",
+    "dev:build": "npm run dev:build --workspaces --if-present",
+    "dev:check": "npm test && npm run dev:styling",
+    "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\"",
+    "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\"",
+    "dev:linting": "npm run dev:linting --workspaces --if-present",
+    "dev:styling": "npm run dev:format && npm run dev:linting",
+    "prepare": "husky && npx replace-in-file '#!/usr/bin/env sh' '#!/usr/bin/env bash' '.husky/_/husky.sh' --quiet && npx replace-in-file 'sh -e' 'bash -e' '.husky/_/husky.sh' --quiet",
+    "dev:publish": "npm publish --workspaces",
+    "test": "npm run test --workspaces --if-present",
+    "test:coverage": "npm run test:coverage --workspaces --if-present"
+  },
+  "//": {
+    "dev:audit": "Checks we don't have vulnearbilities",
+    "dev:build": "Build the project over packages",
+    "dev:check": "Run tests and styling over packages",
+    "dev:format": "Format files over packages",
+    "dev:format:check": "Check files format over packages",
+    "dev:linting": "Lint files over packages",
+    "dev:publish": "Publish all the packages on npm registry",
+    "dev:styling": "Format and lint files over packages",
+    "test": "Run tests over packages",
+    "test:coverage": "Run tests over packages and see coverage reports"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rochejul/experimental-dashboards.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Julien Roche",
+    "email": "roche.jul@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rochejul/experimental-dashboards/issues"
+  },
+  "homepage": "https://github.com/rochejul/experimental-dashboards#readme",
+  "devDependencies": {
+    "@commitlint/cli": "21.2.2",
+    "@commitlint/config-conventional": "21.2.2",
+    "eslint": "10.8.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.6",
+    "husky": "9.1.7",
+    "npmversion": "2.0.5",
+    "prettier": "3.9.6"
+  }
+}
