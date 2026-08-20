@@ -59,7 +59,7 @@
     "name": "Julien Roche",
     "email": "roche.jul@gmail.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rochejul/experimental-dashboards/issues"
   },
@@ -72,6 +72,7 @@
     "eslint-plugin-prettier": "5.5.6",
     "husky": "9.1.7",
     "npmversion": "2.0.5",
+    "parcel": "2.16.4",
     "prettier": "3.9.6"
   }
 }

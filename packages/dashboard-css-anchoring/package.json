@@ -1,0 +1,21 @@
+{
+  "name": "@experimental-dashboards/css-anchoring",
+  "version": "1.0.0",
+  "description": "Using CSS anchoring for a dashboard",
+  "scripts": {
+    "start": "npx parcel index.html --port 3555 --https"
+  },
+  "//": {
+    "start": "Run a local web server (with https) to show the project"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": {
+    "name": "Julien Roche",
+    "email": "roche.jul@gmail.com"
+  },
+  "license": "MIT",
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
