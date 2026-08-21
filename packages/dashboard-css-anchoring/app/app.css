@@ -13,98 +13,72 @@ html {
 }
 
 body {
-  display: flex;
   font: 1em sans-serif;
 }
 
 .app {
-  flex-direction: column;
+  display: flex;
   height: 100%;
+  width: 100%;
 
-  .app__title {
-    flex: 0 0 none;
-  }
-
-  .app__body {
-    background-color: lightskyblue;
-    border: 1px solid black;
+  & .app__body {
     flex: 1 1 auto;
-    position: relative;
+
+    & .app__body__iframe {
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 
-.box {
-  background-color: lightgray;
-  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
-  border: 1px solid transparent;
-  border-radius: 1rem;
-  position: absolute;
-  height: 5rem;
-  width: 5rem;
-
-  &.box--one {
-    anchor-name: --box1;
-    cursor: pointer;
-    top: 25px;
-    left: 55px;
-  }
-
-  &.box--second {
-    anchor-name: --box2;
-    pointer-events: none;
-    top: 185px;
-    left: 505px;
-  }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: auto 1fr;
+  column-gap: 1rem;
 }
 
-.link {
-  background-image:
-    linear-gradient(to bottom, black, black),
-    linear-gradient(to right, black, black),
-    linear-gradient(to bottom, black, black);
-  background-size:
-    2px,
-    50% 2px,
-    50% 2px;
-  background-position:
-    center,
-    top left,
-    bottom right;
-  background-repeat: no-repeat;
-  min-block-size: 2px;
-  position: absolute;
+details {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-row: 1 / span 2;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
 
-  &.link--debug {
-    border: 1px solid black;
+summary {
+  grid-column: var(--n) / span 1;
+  grid-row: 1;
+  display: grid;
+  padding: 1rem;
+  border-bottom: 2px solid dodgerblue;
+  cursor: pointer;
+  z-index: 1;
+}
+
+details[open] :is(summary, .summary) {
+  font-weight: bold;
+}
+
+details::details-content {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border-bottom: 2px solid dodgerblue;
+}
+
+details:not([open])::details-content {
+  display: none;
+}
+
+@media screen and (width < 40em) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    column-gap: 0.5rem;
   }
 
-  &.link--on-right-top, &.link--on-left-bottom {
-    background-position: center, 0 100%, 100% 0;
-  }
-
-  &.link--box1-to-box2 {
-    /*Box 1 on right top of box 2*/
-    inset-block-start: anchor(--box1 center);
-    inset-inline-start: anchor(--box1 right);
-    inset-inline-end: anchor(--box2 left);
-    inset-block-end: anchor(--box2 center);
-
-    /*Box 1 on right bottom of box 2*/
-    /*inset-block-start: anchor(--box2 center);
-    inset-inline-start: anchor(--box1 right);
-    inset-inline-end: anchor(--box2 left);
-    inset-block-end: anchor(--box1 center);*/
-
-    /*Box 1 on left top of box 2*/
-    /*inset-block-start: anchor(--box1 center);
-    inset-inline-start: anchor(--box2 right);
-    inset-block-end: anchor(--box2 center);
-    inset-inline-end: anchor(--box1 left);*/
-
-    /*Box 1 on left bottom of box 2*/
-    /*inset-block-start: anchor(--box2 center);
-    inset-inline-start: anchor(--box2 right);
-    inset-inline-end: anchor(--box1 left);
-    inset-block-end: anchor(--box1 center);*/
+  summary,
+  details::details-content {
+    padding: 0.5rem;
   }
 }

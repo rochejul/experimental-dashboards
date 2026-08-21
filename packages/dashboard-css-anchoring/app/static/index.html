@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" class="app">
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../../resources/icons8-favicon.gif"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard with anchor positioning api - static version</title>
+    <link rel="stylesheet" href="./app.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+
+  <body class="app">
+    <h1 class="app__title">
+      Static dashboard using the anchor positioning api
+    </h1>
+    <section class="app__body">
+      <article class="box box--one"></article>
+      <article class="box box--second"></article>
+      <article class="box box--third"></article>
+      <article class="box box--four"></article>
+      <article class="box box--five"></article>
+
+      <!-- Links just be declared after boxes, because the anchor positioning is based on CSS vars and they are initialized when the DOM element is injected -->
+      <div class="link link--box1-to-box2"></div>
+      <div class="link link--box3-to-box2 link--on-left-bottom"></div>
+      <div class="link link--box4-to-box2 link--on-right-top"></div>
+      <div class="link link--box5-to-box2"></div>
+    </section>
+  </body>
+</html>
