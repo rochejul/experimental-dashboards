@@ -11,13 +11,32 @@ function getBox1PositionToBox2(box1Element, box2Element) {
   const box1Position = getBoxPosition(box1Element);
   const box2Position = getBoxPosition(box2Element);
 
-  const left = box1Element.clientWidth / 2 + box1Position.x < box2Position.x;
-  const top = box1Element.clientHeight / 2 + box1Position.y < box2Position.y;
+  const left =
+    box1Element.clientWidth / 2 + box1Position.x <
+    box2Position.x + box2Element.clientWidth / 2;
+  const top =
+    box1Element.clientHeight / 2 + box1Position.y <
+    box2Position.y + box2Element.clientHeight / 2;
 
-  return { left, top };
+  const above =
+    box2Position.x - box2Element.clientWidth <
+      box1Position.x + box1Element.clientWidth &&
+    box1Position.x + box1Element.clientWidth <
+      box2Position.x + box2Element.clientWidth * 2 &&
+    box1Position.y + box1Element.clientHeight < box2Position.y;
+
+  const below =
+    box2Position.x - box2Element.clientWidth <
+      box1Position.x + box1Element.clientWidth &&
+    box1Position.x + box1Element.clientWidth <
+      box2Position.x + box2Element.clientWidth * 2 &&
+    box2Position.y + box2Element.clientHeight <
+      box1Position.y + box1Element.clientHeight;
+
+  return { left, top, above, below };
 }
 
-function updateLinkClassSet(linkElement, { left, top }) {
+function updateLinkClassSet(linkElement, { left, top, above, below }) {
   linkElement.classList.remove(
     'link--on-right-top',
     'link--on-left-bottom',
@@ -25,9 +44,21 @@ function updateLinkClassSet(linkElement, { left, top }) {
     'link--left-bottom',
     'link--right-top',
     'link--right-bottom',
+    'link--on-above',
+    'link--on-above-right',
+    'link--on-below',
+    'link--on-below-right',
   );
 
-  if (left & top) {
+  if (left && above) {
+    linkElement.classList.add('link--on-above');
+  } else if (!left && above) {
+    linkElement.classList.add('link--on-above-right');
+  } else if (left && below) {
+    linkElement.classList.add('link--on-below');
+  } else if (!left && below) {
+    linkElement.classList.add('link--on-below-right');
+  } else if (left & top) {
     linkElement.classList.add('link--left-top');
   } else if (left & !top) {
     linkElement.classList.add('link--left-bottom', 'link--on-left-bottom');

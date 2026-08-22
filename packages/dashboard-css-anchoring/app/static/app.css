@@ -76,6 +76,20 @@ body {
     top: 295px;
     left: 775px;
   }
+
+  &.box--six {
+    anchor-name: --box6;
+    background-color: lightsalmon;
+    top: 25px;
+    left: 475px;
+  }
+
+  &.box--seven {
+    anchor-name: --box7;
+    background-color: lightslategrey;
+    top: 355px;
+    left: 475px;
+  }
 }
 
 .link {
@@ -105,6 +119,34 @@ body {
       center,
       0 100%,
       100% 0;
+  }
+
+  &.link--on-above {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0 0,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+  }
+
+  &.link--on-below {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
   }
 
   &.link--box1-to-box2 {
@@ -137,5 +179,21 @@ body {
     inset-inline-start: anchor(--box2 right);
     inset-inline-end: anchor(--box5 left);
     inset-block-end: anchor(--box5 center);
+  }
+
+  &.link--box6-to-box2 {
+    /*Box 6 just above of box 2*/
+    inset-block-start: anchor(--box6 end);
+    inset-inline-start: anchor(--box6 center);
+    inset-inline-end: anchor(--box2 center);
+    inset-block-end: anchor(--box2 start);
+  }
+
+  &.link--box7-to-box2 {
+    /*Box 7 just bellow of box 2*/
+    inset-block-start: anchor(--box2 end);
+    inset-inline-start: anchor(--box7 center);
+    inset-block-end: anchor(--box7 start);
+    inset-inline-end: anchor(--box2 center);
   }
 }

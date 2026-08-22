@@ -118,4 +118,76 @@ body {
     inset-inline-end: anchor(--box1 left);
     inset-block-end: anchor(--box1 center);
   }
+
+  &.link--on-above {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0 0,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box1 end);
+    inset-inline-start: anchor(--box1 center);
+    inset-inline-end: anchor(--box2 center);
+    inset-block-end: anchor(--box2 start);
+  }
+
+  &.link--on-above-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box1 end);
+    inset-block-end: anchor(--box2 start);
+    inset-inline-start: anchor(--box2 center);
+    inset-inline-end: anchor(--box1 center);
+  }
+
+  &.link--on-below {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box2 end);
+    inset-inline-start: anchor(--box1 center);
+    inset-block-end: anchor(--box1 start);
+    inset-inline-end: anchor(--box2 center);
+  }
+
+  &.link--on-below-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 0%,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box2 end);
+    inset-inline-start: anchor(--box2 center);
+    inset-block-end: anchor(--box1 start);
+    inset-inline-end: anchor(--box1 center);
+  }
 }
