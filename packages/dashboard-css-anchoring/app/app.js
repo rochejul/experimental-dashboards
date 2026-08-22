@@ -1,5 +1,3 @@
-function setupApp() {
-
-}
+function setupApp() {}
 
 setupApp();

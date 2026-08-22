@@ -1,44 +1,104 @@
-# experimental-dashboards
+# Experimental Dashboards
 
-Produces multiple experimental dashboards with various approaches
+A monorepo exploring various dashboard architectures, interactive data visualizations, and modern web platform capabilities (e.g., CSS Anchor Positioning API, custom layouts, web components, and more).
 
-## Requirements & Toolchain
+---
 
-- **Node.js**: `>=22.0.0` (managed via `.nvmrc` and `volta`)
+## 📦 Packages & Experiments
+
+| Package                                                                          | Path                               | Description                                                                                                                        |
+| :------------------------------------------------------------------------------- | :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| **[@experimental-dashboards/css-anchoring](./packages/dashboard-css-anchoring)** | `packages/dashboard-css-anchoring` | Dashboard relational node connections using the native **CSS Anchor Positioning API** and pure CSS gradient wires (no SVG/Canvas). |
+
+---
+
+## 🏗️ Monorepo Structure
+
+The repository is organized using native **NPM Workspaces**:
+
+```text
+.
+├── packages/                # Monorepo packages & experimental modules
+│   └── dashboard-css-anchoring/  # CSS Anchor Positioning dashboard experiment
+├── apps/                    # Target directory for full-fledged dashboard applications
+├── docs/                    # Contributing guides, architecture guidelines & code of conduct
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CONTRIBUTING.md
+│   └── GUIDELINES.md
+├── .husky/                  # Git hooks (Commitlint & Pre-push checks)
+├── eslint.config.js         # ESLint 9+ flat configuration
+├── package.json             # Root monorepo workspace configuration & scripts
+├── .prettierrc              # Code formatting configuration
+└── README.md                # Root project documentation
+```
+
+---
+
+## 🛠️ Prerequisites & Toolchain
+
+- **Node.js**: `>=22.0.0` (pinned to `22.13.1` in `.nvmrc` and `volta`)
 - **NPM**: `10.9.2` (managed via `packageManager` and `volta`)
+- **[Volta](https://volta.sh/)**: Recommended for deterministic Node.js and NPM runtime versions
 
-## Getting Started
+---
 
-### Installation
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+
+Install all dependencies across all workspaces from the monorepo root:
 
 ```bash
 npm install
 ```
 
-## Tools
+### 2. Run an Experiment
 
-### Antigravity
+To run a specific package experiment locally:
 
-You can install Antigravity with this [help doc](https://antigravity.google/download). To run it, type:
+```bash
+# Run the CSS Anchoring dashboard (Parcel HTTPS on port 3555)
+npm --workspace=packages/dashboard-css-anchoring start
+```
+
+---
+
+## 🧰 Available Scripts
+
+| Script                     | Description                                             |
+| :------------------------- | :------------------------------------------------------ |
+| `npm run dev:build`        | Builds packages across all workspaces                   |
+| `npm run dev:check`        | Runs unit tests and styling checks (Prettier + ESLint)  |
+| `npm run dev:styling`      | Validates formatting (Prettier) and runs ESLint         |
+| `npm run dev:format`       | Checks code formatting across all files                 |
+| `npm run dev:format:check` | Automatically formats and writes fixes across all files |
+| `npm run dev:linting`      | Runs ESLint validation across workspaces                |
+| `npm run dev:audit`        | Runs security audit across workspaces and root          |
+| `npm test`                 | Runs tests across workspaces                            |
+| `npm run test:coverage`    | Runs tests with coverage reports across workspaces      |
+| `npm run dev:publish`      | Publishes packages to the NPM registry                  |
+
+---
+
+## 🤖 Antigravity
+
+Antigravity can be used with this repository for pair programming and agentic workflows. You can install Antigravity via the [download guide](https://antigravity.google/download).
+
+To launch the CLI:
 
 ```bash
 agy
 ```
 
-## Commands
+---
 
-- `npm run dev:build`: Build the project over packages
-- `npm run dev:check`: Run tests and styling over packages
-- `npm run dev:format`: Format files over packages
-- `npm run dev:format:check`: Check files format over packages
-- `npm run dev:linting`: Lint files over packages
-- `npm run dev:styling`: Format and lint files over packages
-- `npm run dev:publish`: Publish all the packages on npm registry
-- `npm test`: Run tests over packages
-- `npm run test:coverage`: Run tests over packages and see coverage reports
+## 🤝 Contributing & Conventions
 
-## Contributing
+- All commit messages must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification (enforced via Husky and Commitlint).
+- Code formatting is enforced via **Prettier** and linting via **ESLint Flat Config**.
+
+For detailed guides, please refer to:
 
 - [Guidelines](./docs/GUIDELINES.md)
-- [Contributing](./docs/CONTRIBUTING.md)
-- [Code of conducts](./docs/CODE_OF_CONDUCTS.md)
+- [Contributing Guidelines](./docs/CONTRIBUTING.md)
+- [Code of Conduct](./docs/CODE_OF_CONDUCT.md)
