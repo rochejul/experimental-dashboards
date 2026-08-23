@@ -73,7 +73,7 @@ function updateLink(linkElement, box1Element, box2Element) {
   updateLinkClassSet(linkElement, position);
 }
 
-function setupApp() {
+function setup() {
   let lastCursorPositionForBoxMovement = null;
   let lastBox1Position = null;
 
@@ -125,4 +125,10 @@ function setupApp() {
   updateLink(linkElement, box1Element, box2Element);
 }
 
-setupApp();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', async () => {
+    setup();
+  });
+} else {
+  setup();
+}

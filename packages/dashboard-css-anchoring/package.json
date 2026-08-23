@@ -5,8 +5,8 @@
   "description": "Using CSS anchoring for a dashboard",
   "scripts": {
     "start": "npx parcel index.html --port 3555 --https",
-    "dev:build": "parcel build index.html --dist-dir dist --public-url ./",
-    "dev:clean": "rm -rf .parcel-cache dist",
+    "dev:build": "npm run dev:clean && parcel build index.html --dist-dir dist --public-url ./",
+    "dev:clean": "rm -rf ../../.parcel-cache dist",
     "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
     "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
     "dev:linting": "npm run dev:format && eslint ."

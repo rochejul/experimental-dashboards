@@ -1,6 +1,15 @@
 {
   "extends": "@parcel/config-default",
   "transformers": {
-    "*.css": ["@parcel/transformer-postcss"]
+    "*.css": [
+      "@parcel/transformer-postcss"
+    ],
+    "*.{js,mjs,jsm,jsx,es6,cjs,ts,tsx}": [
+      "@parcel/transformer-babel",
+      "@parcel/transformer-js"
+    ]
+  },
+  "optimizers": {
+    "*.{js,mjs,cjs}": []
   }
 }

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel index.html demos/css-anchoring/*.html --port 3555 --https",
-    "dev:build": "parcel build index.html demos/css-anchoring/*.html --dist-dir dist --public-url /experimental-dashboards/",
+    "dev:build": "npm run dev:clean && parcel build index.html demos/css-anchoring/*.html --dist-dir dist --public-url /experimental-dashboards/",
     "dev:clean": "rm -rf .parcel-cache dist",
     "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
     "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
