@@ -1,12 +1,17 @@
 {
   "name": "@experimental-dashboards/css-anchoring",
   "version": "1.0.0",
+  "type": "module",
   "description": "Using CSS anchoring for a dashboard",
   "scripts": {
-    "start": "npx parcel index.html --port 3555 --https"
+    "start": "npx parcel index.html --port 3555 --https",
+    "dev:build": "parcel build index.html --dist-dir dist --public-url ./",
+    "dev:clean": "rm -rf .parcel-cache dist"
   },
   "//": {
-    "start": "Run a local web server (with https) to show the project"
+    "start": "Run a local web server (with https) to show the project",
+    "dev:build": "Build the package demo with parcel",
+    "dev:clean": "Clean build and parcel cache artifacts"
   },
   "devDependencies": {},
   "keywords": [],

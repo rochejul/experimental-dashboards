@@ -1,0 +1,196 @@
+@import url(../../app/reset.css);
+
+html,
+body {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  font: 1em sans-serif;
+}
+
+.app {
+  flex-direction: column;
+  height: 100%;
+
+  .app__title {
+    flex: 0 0 none;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .app__body {
+    background-color: lightskyblue;
+    border: 1px solid black;
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.box {
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  pointer-events: none;
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+
+  &.box--one {
+    anchor-name: --box1;
+    background-color: lightgray;
+    top: 25px;
+    left: 55px;
+  }
+
+  &.box--second {
+    anchor-name: --box2;
+    background-color: lightgreen;
+    top: 185px;
+    left: 505px;
+  }
+
+  &.box--third {
+    anchor-name: --box3;
+    background-color: lightpink;
+    top: 245px;
+    left: 75px;
+  }
+
+  &.box--four {
+    anchor-name: --box4;
+    background-color: lightyellow;
+    top: 45px;
+    left: 675px;
+  }
+
+  &.box--five {
+    anchor-name: --box5;
+    background-color: lightseagreen;
+    top: 295px;
+    left: 775px;
+  }
+
+  &.box--six {
+    anchor-name: --box6;
+    background-color: lightsalmon;
+    top: 25px;
+    left: 475px;
+  }
+
+  &.box--seven {
+    anchor-name: --box7;
+    background-color: lightslategrey;
+    top: 355px;
+    left: 475px;
+  }
+}
+
+.link {
+  background-image:
+    linear-gradient(to bottom, black, black),
+    linear-gradient(to right, black, black),
+    linear-gradient(to bottom, black, black);
+  background-size:
+    2px,
+    50% 2px,
+    50% 2px;
+  background-position:
+    center,
+    top left,
+    bottom right;
+  background-repeat: no-repeat;
+  min-block-size: 2px;
+  position: absolute;
+
+  &.link--debug {
+    border: 1px solid black;
+  }
+
+  &.link--on-right-top,
+  &.link--on-left-bottom {
+    background-position:
+      center,
+      0 100%,
+      100% 0;
+  }
+
+  &.link--on-above {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0 0,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+  }
+
+  &.link--on-below {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+  }
+
+  &.link--box1-to-box2 {
+    inset-block-start: anchor(--box1 center);
+    inset-inline-start: anchor(--box1 right);
+    inset-inline-end: anchor(--box2 left);
+    inset-block-end: anchor(--box2 center);
+  }
+
+  &.link--box3-to-box2 {
+    inset-block-start: anchor(--box2 center);
+    inset-inline-start: anchor(--box3 right);
+    inset-inline-end: anchor(--box2 left);
+    inset-block-end: anchor(--box3 center);
+  }
+
+  &.link--box4-to-box2 {
+    inset-block-start: anchor(--box4 center);
+    inset-inline-start: anchor(--box2 right);
+    inset-block-end: anchor(--box2 center);
+    inset-inline-end: anchor(--box4 left);
+  }
+
+  &.link--box5-to-box2 {
+    inset-block-start: anchor(--box2 center);
+    inset-inline-start: anchor(--box2 right);
+    inset-inline-end: anchor(--box5 left);
+    inset-block-end: anchor(--box5 center);
+  }
+
+  &.link--box6-to-box2 {
+    inset-block-start: anchor(--box6 end);
+    inset-inline-start: anchor(--box6 center);
+    inset-inline-end: anchor(--box2 center);
+    inset-block-end: anchor(--box2 start);
+  }
+
+  &.link--box7-to-box2 {
+    inset-block-start: anchor(--box2 end);
+    inset-inline-start: anchor(--box7 center);
+    inset-block-end: anchor(--box7 start);
+    inset-inline-end: anchor(--box2 center);
+  }
+}

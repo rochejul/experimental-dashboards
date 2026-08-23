@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" class="app">
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../../resources/icons8-favicon.gif"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Anchor Positioning - Static Topology</title>
+    <link rel="stylesheet" href="./static.css" />
+  </head>
+
+  <body class="app">
+    <h1 class="app__title">
+      Static dashboard using the anchor positioning api
+    </h1>
+    <section class="app__body">
+      <article class="box box--one"></article>
+      <article class="box box--second"></article>
+      <article class="box box--third"></article>
+      <article class="box box--four"></article>
+      <article class="box box--five"></article>
+      <article class="box box--six"></article>
+      <article class="box box--seven"></article>
+
+      <!-- Links declared after boxes for CSS anchor resolution -->
+      <div class="link link--box1-to-box2"></div>
+      <div class="link link--box3-to-box2 link--on-left-bottom"></div>
+      <div class="link link--box4-to-box2 link--on-right-top"></div>
+      <div class="link link--box5-to-box2"></div>
+      <div class="link link--box6-to-box2 link--on-above"></div>
+      <div class="link link--box7-to-box2 link--on-below"></div>
+    </section>
+  </body>
+</html>

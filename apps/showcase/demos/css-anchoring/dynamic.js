@@ -58,13 +58,13 @@ function updateLinkClassSet(linkElement, { left, top, above, below }) {
     linkElement.classList.add('link--on-below');
   } else if (!left && below) {
     linkElement.classList.add('link--on-below-right');
-  } else if (left & top) {
+  } else if (left && top) {
     linkElement.classList.add('link--left-top');
-  } else if (left & !top) {
+  } else if (left && !top) {
     linkElement.classList.add('link--left-bottom', 'link--on-left-bottom');
-  } else if (!left & top) {
+  } else if (!left && top) {
     linkElement.classList.add('link--right-top', 'link--on-right-top');
-  } else if (!left & !top) {
+  } else if (!left && !top) {
     linkElement.classList.add('link--right-bottom');
   }
 }
@@ -85,10 +85,7 @@ function setupApp() {
   const linkElement = document.querySelector('.link');
 
   bodyElement.addEventListener('pointermove', (event) => {
-    console.log('Pointer moved in %s %s', event.offsetX, event.offsetY);
-
     if (lastBox1Position) {
-      console.info('We compute the box position');
       const diffX = Math.round(
         event.clientX - lastCursorPositionForBoxMovement.x,
       );
@@ -96,20 +93,13 @@ function setupApp() {
         event.clientY - lastCursorPositionForBoxMovement.y,
       );
 
-      console.log('The box has moved from %s %s', diffX, diffY);
-
-      box1Element.style = `left: ${lastBox1Position.x + diffX}px; top: ${lastBox1Position.y + diffY}px;`;
+      box1Element.style.left = `${lastBox1Position.x + diffX}px`;
+      box1Element.style.top = `${lastBox1Position.y + diffY}px`;
       updateLink(linkElement, box1Element, box2Element);
     }
   });
 
   box1Element.addEventListener('pointerdown', (event) => {
-    console.info(
-      'We will start to move the box from pointer position %s %s',
-      event.clientX,
-      event.clientY,
-    );
-
     lastCursorPositionForBoxMovement = {
       x: event.clientX,
       y: event.clientY,
@@ -119,7 +109,6 @@ function setupApp() {
   });
 
   box1Element.addEventListener('pointerup', () => {
-    console.info('We stop to move the box');
     lastCursorPositionForBoxMovement = null;
     lastBox1Position = null;
   });

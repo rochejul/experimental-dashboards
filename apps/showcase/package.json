@@ -1,0 +1,35 @@
+{
+  "name": "@experimental-dashboards/showcase",
+  "version": "1.0.0",
+  "description": "Showcase and live demos for experimental dashboards",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "parcel index.html demos/css-anchoring/*.html --port 3555 --https",
+    "dev:build": "parcel build index.html demos/css-anchoring/*.html --dist-dir dist --public-url /experimental-dashboards/",
+    "dev:clean": "rm -rf .parcel-cache dist",
+    "dev:linting": "eslint ."
+  },
+  "//": {
+    "start": "Run a local web server with Parcel",
+    "dev:build": "Build showcase application for production with base public-url for GitHub Pages",
+    "dev:clean": "Clean build and parcel cache artifacts",
+    "dev:linting": "Lint files using project ESLint configuration"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "dashboard",
+    "experiments",
+    "showcase",
+    "parcel",
+    "css-anchoring"
+  ],
+  "author": {
+    "name": "Julien Roche",
+    "email": "roche.jul@gmail.com"
+  },
+  "license": "MIT",
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

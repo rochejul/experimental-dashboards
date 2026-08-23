@@ -1,0 +1,196 @@
+@import url(../../app/reset.css);
+
+html,
+body {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  font: 1em sans-serif;
+}
+
+.app {
+  flex-direction: column;
+  height: 100%;
+
+  .app__title {
+    flex: 0 0 none;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .app__body {
+    background-color: lightskyblue;
+    border: 1px solid black;
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+.box {
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+
+  &.box--one {
+    anchor-name: --box1;
+    background-color: lightgray;
+    cursor: grab;
+    top: 25px;
+    left: 55px;
+    user-select: none;
+    touch-action: none;
+  }
+
+  &.box--one:active {
+    cursor: grabbing;
+  }
+
+  &.box--second {
+    anchor-name: --box2;
+    background-color: lightgreen;
+    pointer-events: none;
+    top: 200px;
+    left: 450px;
+  }
+}
+
+.link {
+  background-image:
+    linear-gradient(to bottom, black, black),
+    linear-gradient(to right, black, black),
+    linear-gradient(to bottom, black, black);
+  background-size:
+    2px,
+    50% 2px,
+    50% 2px;
+  background-position:
+    center,
+    top left,
+    bottom right;
+  background-repeat: no-repeat;
+  min-block-size: 2px;
+  position: absolute;
+  pointer-events: none;
+
+  &.link--on-right-top,
+  &.link--on-left-bottom {
+    background-position:
+      center,
+      0 100%,
+      100% 0;
+  }
+
+  &.link--on-above {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0 0,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box1 end);
+    inset-inline-start: anchor(--box1 center);
+    inset-inline-end: anchor(--box2 center);
+    inset-block-end: anchor(--box2 start);
+  }
+
+  &.link--on-above-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      100% 0,
+      center,
+      0% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box1 end);
+    inset-inline-start: anchor(--box2 center);
+    inset-inline-end: anchor(--box1 center);
+    inset-block-end: anchor(--box2 start);
+  }
+
+  &.link--on-below {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box2 end);
+    inset-inline-start: anchor(--box1 center);
+    inset-block-end: anchor(--box1 start);
+    inset-inline-end: anchor(--box2 center);
+  }
+
+  &.link--on-below-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      100% 100%,
+      center,
+      0% 0%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(--box2 end);
+    inset-inline-start: anchor(--box2 center);
+    inset-block-end: anchor(--box1 start);
+    inset-inline-end: anchor(--box1 center);
+  }
+
+  &.link--left-top {
+    inset-block-start: anchor(--box1 center);
+    inset-inline-start: anchor(--box1 right);
+    inset-inline-end: anchor(--box2 left);
+    inset-block-end: anchor(--box2 center);
+  }
+
+  &.link--left-bottom {
+    inset-block-start: anchor(--box2 center);
+    inset-inline-start: anchor(--box1 right);
+    inset-inline-end: anchor(--box2 left);
+    inset-block-end: anchor(--box1 center);
+  }
+
+  &.link--right-top {
+    inset-block-start: anchor(--box1 center);
+    inset-inline-start: anchor(--box2 right);
+    inset-block-end: anchor(--box2 center);
+    inset-inline-end: anchor(--box1 left);
+  }
+
+  &.link--right-bottom {
+    inset-block-start: anchor(--box2 center);
+    inset-inline-start: anchor(--box2 right);
+    inset-inline-end: anchor(--box1 left);
+    inset-block-end: anchor(--box1 center);
+  }
+}

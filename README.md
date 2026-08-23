@@ -2,9 +2,19 @@
 
 A monorepo exploring various dashboard architectures, interactive data visualizations, and modern web platform capabilities (e.g., CSS Anchor Positioning API, custom layouts, web components, and more).
 
+> 🌐 **Live Demo on GitHub Pages:** [https://rochejul.github.io/experimental-dashboards/](https://rochejul.github.io/experimental-dashboards/)
+
 ---
 
-## 📦 Packages & Experiments
+## 📱 Applications & Packages
+
+### Applications (`apps/`)
+
+| Application                                              | Path            | Live Demo                                                           | Description                                                                                                                                  |
+| :------------------------------------------------------- | :-------------- | :------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[@experimental-dashboards/showcase](./apps/showcase)** | `apps/showcase` | [🔗 Live Demo](https://rochejul.github.io/experimental-dashboards/) | Central interactive showcase portal and live demo hub, with multi-view controls, responsive viewport simulation, and GitHub Pages packaging. |
+
+### Packages & Experiments (`packages/`)
 
 | Package                                                                          | Path                               | Description                                                                                                                        |
 | :------------------------------------------------------------------------------- | :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,9 +28,13 @@ The repository is organized using native **NPM Workspaces**:
 
 ```text
 .
+├── .github/                 # CI/CD Workflows (GitHub Pages deployment)
+│   └── workflows/
+│       └── deploy-pages.yml
+├── apps/                    # Applications & showcases
+│   └── showcase/            # Central demo hub application
 ├── packages/                # Monorepo packages & experimental modules
 │   └── dashboard-css-anchoring/  # CSS Anchor Positioning dashboard experiment
-├── apps/                    # Target directory for full-fledged dashboard applications
 ├── docs/                    # Contributing guides, architecture guidelines & code of conduct
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
@@ -52,12 +66,22 @@ Install all dependencies across all workspaces from the monorepo root:
 npm install
 ```
 
-### 2. Run an Experiment
+### 2. Launch the Showcase Application
 
-To run a specific package experiment locally:
+Launch the central showcase application (Parcel HTTPS on port `3555`):
 
 ```bash
-# Run the CSS Anchoring dashboard (Parcel HTTPS on port 3555)
+npm start
+```
+
+Open your browser at `https://localhost:3555`.
+
+### 3. Run a Specific Experiment
+
+To run a specific package experiment individually:
+
+```bash
+# Run the CSS Anchoring dashboard package
 npm --workspace=packages/dashboard-css-anchoring start
 ```
 
@@ -67,6 +91,7 @@ npm --workspace=packages/dashboard-css-anchoring start
 
 | Script                     | Description                                             |
 | :------------------------- | :------------------------------------------------------ |
+| `npm start`                | Starts the showcase application dev server (port 3555)  |
 | `npm run dev:build`        | Builds packages across all workspaces                   |
 | `npm run dev:check`        | Runs unit tests and styling checks (Prettier + ESLint)  |
 | `npm run dev:styling`      | Validates formatting (Prettier) and runs ESLint         |

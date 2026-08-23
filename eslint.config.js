@@ -3,6 +3,22 @@ import globals from 'globals';
 
 import prettier from 'eslint-plugin-prettier';
 
+export const globalIgnores = {
+  ignores: [
+    '**/.*',
+    '**/dist/**',
+    '**/.parcel-cache/**',
+    '**/node_modules/**',
+    '**/build/**',
+    '--help/**',
+    '**/.husky/**',
+    '**/.vscode/**',
+    '**/images/**',
+    '**/*.amd.js',
+    '**/*.umd.js',
+  ],
+};
+
 export const eslintRecommended = js.configs.recommended;
 export const eslintWeb = {
   files: ['**/*.js', '**/*.mjs'],
@@ -20,20 +36,10 @@ export const eslintWeb = {
     'prettier/prettier': 'warn',
     ...js.configs.recommended.rules,
   },
-  ignores: [
-    '**/.*',
-    'node_modules/*',
-    '**/build/*',
-    '--help/*',
-    '.husky/*',
-    '.vscode/*',
-    'images/*',
-    '**/*.amd.js',
-    '**/*.umd.js',
-  ],
 };
 
 export default [
+  globalIgnores,
   js.configs.recommended,
   {
     files: ['**/*.js', '**/*.mjs'],
@@ -50,14 +56,5 @@ export default [
     rules: {
       'prettier/prettier': 'warn',
     },
-    ignores: [
-      '**/.*',
-      'node_modules/*',
-      '**/build/*',
-      '--help/*',
-      '.husky/*',
-      '.vscode/*',
-      'images/*',
-    ],
   },
 ];
