@@ -2,6 +2,9 @@
   "editor.defaultFormatter": null,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
   "html.format.enable": true,
   "prettier.requireConfig": true,
   "prettier.configPath": "./.prettierrc",
@@ -24,5 +27,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "markdown.extension.showActionButtons": true,
-  "markdown.extension.toc.levels": "2..6"
+  "markdown.extension.toc.levels": "2..6",
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue"
+  ]
 }
