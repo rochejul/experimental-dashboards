@@ -21,19 +21,21 @@ This document describes the project architecture, tech stack, directory structur
 
 ```text
 .
+├── .github/                 # GitHub Workflows (deploy-pages.yml)
 ├── .husky/                  # Git hooks (commit-msg, pre-commit, pre-push)
 ├── .vscode/                 # VS Code workspace settings & recommended extensions
 ├── docs/                    # Contributing guidelines, code of conduct, workflow docs
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
 │   └── GUIDELINES.md
+├── apps/                    # Target directory for applications (workspaces)
+│   └── showcase/            # Central demo portal & GitHub Pages app
 ├── packages/                # Monorepo packages & experiment modules
 │   └── dashboard-css-anchoring/  # Dashboard experiment using CSS Anchor Positioning
 │       ├── app/             # Application styles (app.css) and logic (app.js)
 │       ├── resources/       # Static assets & icons
 │       ├── index.html       # HTML entry point (bundled with Parcel)
 │       └── package.json     # Package-specific config & scripts
-├── apps/                    # Target directory for full-fledged applications (workspaces)
 ├── eslint.config.js         # ESLint 9+ flat configuration
 ├── package.json             # Root monorepo configuration, workspace definitions & scripts
 ├── .prettierrc              # Code formatting rules
@@ -93,6 +95,12 @@ npm init -w ./packages/<package-name>
 - **Tool:** ESLint (Flat Config via `eslint.config.js`) with `eslint-plugin-prettier`.
 - **Target Extensions:** `.js`, `.mjs`, `.ts`, `.tsx`.
 - **Command:** `npm run dev:linting`
+
+### CSS Standards & Conventions
+
+- **Naming Convention:** **BEM** (Block Element Modifier) must be used for all CSS class names (`.block`, `.block__element`, `.block--modifier`, `.block__element--modifier`).
+- **CSS Nesting:** Native **CSS Nesting** should be used whenever applicable to group block elements, modifiers, pseudo-classes, and media queries cleanly within their parent block selector (e.g. `& .block__element`, `&--active`, `&:hover`).
+- **Modern CSS First:** Favor modern web platform features (CSS Anchor Positioning API, CSS Subgrid, CSS variables, logical properties) over external styling frameworks or JS-heavy layout computations.
 
 ### Combined Quality Checks
 
