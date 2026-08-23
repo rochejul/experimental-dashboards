@@ -105,12 +105,14 @@ npm run dev:build
 
 ## 🧰 Available Scripts
 
-| Script                | Description                                                                       |
-| :-------------------- | :-------------------------------------------------------------------------------- |
-| `npm start`           | Starts local development server with HTTPS on port `3555`                         |
-| `npm run dev:build`   | Builds production assets to `dist/` with `--public-url /experimental-dashboards/` |
-| `npm run dev:linting` | Runs ESLint validation across application files                                   |
-| `npm run dev:clean`   | Removes `.parcel-cache` and `dist/` build output                                  |
+| Script                     | Description                                                                       |
+| :------------------------- | :-------------------------------------------------------------------------------- |
+| `npm start`                | Starts local development server with HTTPS on port `3555`                         |
+| `npm run dev:build`        | Builds production assets to `dist/` with `--public-url /experimental-dashboards/` |
+| `npm run dev:format`       | Checks code formatting with Prettier                                              |
+| `npm run dev:format:check` | Formats code with Prettier                                                        |
+| `npm run dev:linting`      | Runs Prettier format check and ESLint validation across application files         |
+| `npm run dev:clean`        | Removes `.parcel-cache` and `dist/` build output                                  |
 
 ---
 

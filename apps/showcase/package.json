@@ -8,13 +8,17 @@
     "start": "parcel index.html demos/css-anchoring/*.html --port 3555 --https",
     "dev:build": "parcel build index.html demos/css-anchoring/*.html --dist-dir dist --public-url /experimental-dashboards/",
     "dev:clean": "rm -rf .parcel-cache dist",
-    "dev:linting": "eslint ."
+    "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
+    "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
+    "dev:linting": "npm run dev:format && eslint ."
   },
   "//": {
     "start": "Run a local web server with Parcel",
     "dev:build": "Build showcase application for production with base public-url for GitHub Pages",
     "dev:clean": "Clean build and parcel cache artifacts",
-    "dev:linting": "Lint files using project ESLint configuration"
+    "dev:format": "Check code formatting with Prettier",
+    "dev:format:check": "Format code with Prettier",
+    "dev:linting": "Format check with Prettier and lint files using ESLint"
   },
   "devDependencies": {},
   "keywords": [

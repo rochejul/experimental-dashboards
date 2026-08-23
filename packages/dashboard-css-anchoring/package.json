@@ -6,12 +6,18 @@
   "scripts": {
     "start": "npx parcel index.html --port 3555 --https",
     "dev:build": "parcel build index.html --dist-dir dist --public-url ./",
-    "dev:clean": "rm -rf .parcel-cache dist"
+    "dev:clean": "rm -rf .parcel-cache dist",
+    "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
+    "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
+    "dev:linting": "npm run dev:format && eslint ."
   },
   "//": {
     "start": "Run a local web server (with https) to show the project",
     "dev:build": "Build the package demo with parcel",
-    "dev:clean": "Clean build and parcel cache artifacts"
+    "dev:clean": "Clean build and parcel cache artifacts",
+    "dev:format": "Check code formatting with Prettier",
+    "dev:format:check": "Format code with Prettier",
+    "dev:linting": "Format check with Prettier and lint files using ESLint"
   },
   "devDependencies": {},
   "keywords": [],

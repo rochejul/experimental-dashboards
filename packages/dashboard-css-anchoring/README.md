@@ -172,6 +172,19 @@ Open your browser at `https://localhost:3555`.
 
 ---
 
+## 🧰 Available Scripts
+
+| Script                     | Description                                                           |
+| :------------------------- | :-------------------------------------------------------------------- |
+| `npm start`                | Starts local development server with HTTPS on port `3555`             |
+| `npm run dev:build`        | Builds production assets to `dist/` with Parcel                       |
+| `npm run dev:format`       | Checks code formatting with Prettier                                  |
+| `npm run dev:format:check` | Formats code with Prettier                                            |
+| `npm run dev:linting`      | Runs Prettier format check and ESLint validation across package files |
+| `npm run dev:clean`        | Removes `.parcel-cache` and `dist/` build output                      |
+
+---
+
 ## 📚 References & Resources
 
 - [Drawing a Line to Connect Elements with CSS Anchor Positioning](https://master.dev/blog/drawing-a-line-to-connect-elements-with-css-anchor-positioning/)
