@@ -1,0 +1,228 @@
+@import url(../reset.css);
+
+html,
+body {
+  border: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  font: 1em sans-serif;
+}
+
+.app {
+  flex-direction: column;
+  height: 100%;
+
+  .app__title {
+    flex: 0 0 none;
+  }
+
+  .app__body {
+    background-color: lightskyblue;
+    border: 1px solid black;
+    flex: 1 1 auto;
+    position: relative;
+  }
+}
+
+.box {
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  pointer-events: none;
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+
+  &.box--one {
+    anchor-name: --box1;
+    background-color: lightgray;
+    top: 25px;
+    left: 55px;
+  }
+
+  &.box--second {
+    anchor-name: --box2;
+    background-color: lightgreen;
+    top: 185px;
+    left: 505px;
+  }
+
+  &.box--third {
+    anchor-name: --box3;
+    background-color: lightpink;
+    top: 245px;
+    left: 75px;
+  }
+
+  &.box--four {
+    anchor-name: --box4;
+    background-color: lightyellow;
+    top: 45px;
+    left: 675px;
+  }
+
+  &.box--five {
+    anchor-name: --box5;
+    background-color: lightseagreen;
+    top: 295px;
+    left: 775px;
+  }
+
+  &.box--six {
+    anchor-name: --box6;
+    background-color: lightsalmon;
+    top: 25px;
+    left: 475px;
+  }
+
+  &.box--seven {
+    anchor-name: --box7;
+    background-color: lightslategrey;
+    top: 355px;
+    left: 475px;
+  }
+}
+
+.link {
+  background-image:
+    linear-gradient(to bottom, black, black),
+    linear-gradient(to right, black, black),
+    linear-gradient(to bottom, black, black);
+  background-size:
+    2px,
+    50% 2px,
+    50% 2px;
+  background-position:
+    center,
+    top left,
+    bottom right;
+  background-repeat: no-repeat;
+  min-block-size: 2px;
+  position: absolute;
+
+  &.link--debug {
+    border: 1px solid black;
+  }
+
+  &.link--left-top {
+    /*Moving box on left top of static box*/
+    inset-block-start: anchor(var(--moving-element) center);
+    inset-inline-start: anchor(var(--moving-element) right);
+    inset-inline-end: anchor(var(--static-element) left);
+    inset-block-end: anchor(var(--static-element) center);
+  }
+
+  &.link--left-bottom {
+    /*Moving box on left bottom of static box*/
+    background-position:
+      center,
+      0 100%,
+      100% 0;
+    inset-block-start: anchor(var(--static-element) center);
+    inset-inline-start: anchor(var(--moving-element) right);
+    inset-inline-end: anchor(var(--static-element) left);
+    inset-block-end: anchor(var(--moving-element) center);
+  }
+
+  &.link--right-top {
+    /*Moving box on right top of static box*/
+    background-position:
+      center,
+      0 100%,
+      100% 0;
+
+    inset-block-start: anchor(var(--moving-element) center);
+    inset-inline-start: anchor(var(--static-element) right);
+    inset-block-end: anchor(var(--static-element) center);
+    inset-inline-end: anchor(var(--moving-element) left);
+  }
+
+  &.link--right-bottom {
+    /*Moving box on right bottom of static box*/
+    inset-block-start: anchor(var(--static-element) center);
+    inset-inline-start: anchor(var(--static-element) right);
+    inset-inline-end: anchor(var(--moving-element) left);
+    inset-block-end: anchor(var(--moving-element) center);
+  }
+
+  &.link--on-above {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0 0,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(var(--moving-element) end);
+    inset-inline-start: anchor(var(--moving-element) center);
+    inset-inline-end: anchor(var(--static-element) center);
+    inset-block-end: anchor(var(--static-element) start);
+  }
+
+  &.link--on-above-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(var(--moving-element) end);
+    inset-block-end: anchor(var(--static-element) start);
+    inset-inline-start: anchor(var(--static-element) center);
+    inset-inline-end: anchor(var(--moving-element) center);
+  }
+
+  &.link--on-below {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(var(--static-element) end);
+    inset-inline-start: anchor(var(--moving-element) center);
+    inset-block-end: anchor(var(--moving-element) start);
+    inset-inline-end: anchor(var(--static-element) center);
+  }
+
+  &.link--on-below-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 0%,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(var(--static-element) end);
+    inset-inline-start: anchor(var(--static-element) center);
+    inset-block-end: anchor(var(--moving-element) start);
+    inset-inline-end: anchor(var(--moving-element) center);
+  }
+}

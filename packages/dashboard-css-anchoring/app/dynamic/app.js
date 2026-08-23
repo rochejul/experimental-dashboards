@@ -38,8 +38,6 @@ function getBox1PositionToBox2(box1Element, box2Element) {
 
 function updateLinkClassSet(linkElement, { left, top, above, below }) {
   linkElement.classList.remove(
-    'link--on-right-top',
-    'link--on-left-bottom',
     'link--left-top',
     'link--left-bottom',
     'link--right-top',
@@ -61,9 +59,9 @@ function updateLinkClassSet(linkElement, { left, top, above, below }) {
   } else if (left & top) {
     linkElement.classList.add('link--left-top');
   } else if (left & !top) {
-    linkElement.classList.add('link--left-bottom', 'link--on-left-bottom');
+    linkElement.classList.add('link--left-bottom');
   } else if (!left & top) {
-    linkElement.classList.add('link--right-top', 'link--on-right-top');
+    linkElement.classList.add('link--right-top');
   } else if (!left & !top) {
     linkElement.classList.add('link--right-bottom');
   }

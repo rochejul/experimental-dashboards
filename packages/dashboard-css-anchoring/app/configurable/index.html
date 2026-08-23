@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" class="app">
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../../resources/icons8-favicon.gif"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard with anchor positioning api - configurable version</title>
+    <link rel="stylesheet" href="./app.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+
+  <body class="app">
+    <h1 class="app__title">
+      Configurable dashboard using the anchor positioning api
+    </h1>
+    <h2>
+      Similar to static, but with a more generic and configurable CSS (using
+      inline CSS Variable)
+    </h2>
+    <section class="app__body">
+      <article class="box box--one"></article>
+      <article class="box box--second"></article>
+      <article class="box box--third"></article>
+      <article class="box box--four"></article>
+      <article class="box box--five"></article>
+      <article class="box box--six"></article>
+      <article class="box box--seven"></article>
+
+      <!-- Links just be declared after boxes, because the anchor positioning is based on CSS vars and they are initialized when the DOM element is injected -->
+      <!-- The inline vars should be declared before the class attribute (otherwise the variable value will not be find) -->
+      <div
+        style="--moving-element: --box1; --static-element: --box2"
+        class="link link--left-top"
+      ></div>
+      <div
+        style="--moving-element: --box3; --static-element: --box2"
+        class="link link--left-bottom"
+      ></div>
+      <div
+        style="--moving-element: --box4; --static-element: --box2"
+        class="link link--right-top"
+      ></div>
+      <div
+        style="--moving-element: --box5; --static-element: --box2"
+        class="link link--right-bottom"
+      ></div>
+      <div
+        style="--moving-element: --box6; --static-element: --box2"
+        class="link link--on-above"
+      ></div>
+      <div
+        style="--moving-element: --box7; --static-element: --box2"
+        class="link link--on-below"
+      ></div>
+    </section>
+  </body>
+</html>
