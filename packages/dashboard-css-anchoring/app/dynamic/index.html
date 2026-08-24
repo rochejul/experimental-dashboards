@@ -14,13 +14,19 @@
   </head>
 
   <body class="app">
-    <h1 class="app__title">Dynamic dashboard using the anchor positioning api</h1>
+    <h1 class="app__title">
+      Dynamic dashboard using the anchor positioning api
+    </h1>
     <section class="app__body">
       <article class="box box--one"></article>
       <article class="box box--second"></article>
 
       <!-- Links just be declared after boxes, because the anchor positioning is based on CSS vars and they are initialized when the DOM element is injected -->
-      <div class="link"></div>
+      <!-- The inline vars should be declared before the class attribute (otherwise the variable value will not be find) -->
+      <div
+        style="--moving-element: --box1; --static-element: --box2"
+        class="link"
+      ></div>
     </section>
   </body>
 </html>

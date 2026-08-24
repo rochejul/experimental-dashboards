@@ -78,45 +78,45 @@ body {
     border: 1px solid black;
   }
 
-  &.link--left-top {
-    /*Box 1 on left top of box 2*/
-    inset-block-start: anchor(--box1 center);
-    inset-inline-start: anchor(--box1 right);
-    inset-inline-end: anchor(--box2 left);
-    inset-block-end: anchor(--box2 center);
+   &.link--left-top {
+    /*Moving box on left top of static box*/
+    inset-block-start: anchor(var(--moving-element) center);
+    inset-inline-start: anchor(var(--moving-element) right);
+    inset-inline-end: anchor(var(--static-element) left);
+    inset-block-end: anchor(var(--static-element) center);
   }
 
   &.link--left-bottom {
-    /*Box 1 on left bottom of box 2*/
+    /*Moving box on left bottom of static box*/
     background-position:
       center,
       0 100%,
       100% 0;
-    inset-block-start: anchor(--box2 center);
-    inset-inline-start: anchor(--box1 right);
-    inset-inline-end: anchor(--box2 left);
-    inset-block-end: anchor(--box1 center);
+    inset-block-start: anchor(var(--static-element) center);
+    inset-inline-start: anchor(var(--moving-element) right);
+    inset-inline-end: anchor(var(--static-element) left);
+    inset-block-end: anchor(var(--moving-element) center);
   }
 
   &.link--right-top {
-    /*Box 1 on right top of box 2*/
+    /*Moving box on right top of static box*/
     background-position:
       center,
       0 100%,
       100% 0;
 
-    inset-block-start: anchor(--box1 center);
-    inset-inline-start: anchor(--box2 right);
-    inset-block-end: anchor(--box2 center);
-    inset-inline-end: anchor(--box1 left);
+    inset-block-start: anchor(var(--moving-element) center);
+    inset-inline-start: anchor(var(--static-element) right);
+    inset-block-end: anchor(var(--static-element) center);
+    inset-inline-end: anchor(var(--moving-element) left);
   }
 
   &.link--right-bottom {
-    /*Box 1 on right bottom of box 2*/
-    inset-block-start: anchor(--box2 center);
-    inset-inline-start: anchor(--box2 right);
-    inset-inline-end: anchor(--box1 left);
-    inset-block-end: anchor(--box1 center);
+    /*Moving box on right bottom of static box*/
+    inset-block-start: anchor(var(--static-element) center);
+    inset-inline-start: anchor(var(--static-element) right);
+    inset-inline-end: anchor(var(--moving-element) left);
+    inset-block-end: anchor(var(--moving-element) center);
   }
 
   &.link--on-above {
@@ -131,10 +131,10 @@ body {
       2px 50%,
       100% 2px,
       2px 50%;
-    inset-block-start: anchor(--box1 end);
-    inset-inline-start: anchor(--box1 center);
-    inset-inline-end: anchor(--box2 center);
-    inset-block-end: anchor(--box2 start);
+    inset-block-start: anchor(var(--moving-element) end);
+    inset-inline-start: anchor(var(--moving-element) center);
+    inset-inline-end: anchor(var(--static-element) center);
+    inset-block-end: anchor(var(--static-element) start);
   }
 
   &.link--on-above-right {
@@ -149,10 +149,10 @@ body {
       2px 50%,
       100% 2px,
       2px 50%;
-    inset-block-start: anchor(--box1 end);
-    inset-block-end: anchor(--box2 start);
-    inset-inline-start: anchor(--box2 center);
-    inset-inline-end: anchor(--box1 center);
+    inset-block-start: anchor(var(--moving-element) end);
+    inset-block-end: anchor(var(--static-element) start);
+    inset-inline-start: anchor(var(--static-element) center);
+    inset-inline-end: anchor(var(--moving-element) center);
   }
 
   &.link--on-below {
@@ -167,10 +167,10 @@ body {
       2px 50%,
       100% 2px,
       2px 50%;
-    inset-block-start: anchor(--box2 end);
-    inset-inline-start: anchor(--box1 center);
-    inset-block-end: anchor(--box1 start);
-    inset-inline-end: anchor(--box2 center);
+    inset-block-start: anchor(var(--static-element) end);
+    inset-inline-start: anchor(var(--moving-element) center);
+    inset-block-end: anchor(var(--moving-element) start);
+    inset-inline-end: anchor(var(--static-element) center);
   }
 
   &.link--on-below-right {
@@ -185,9 +185,9 @@ body {
       2px 50%,
       100% 2px,
       2px 50%;
-    inset-block-start: anchor(--box2 end);
-    inset-inline-start: anchor(--box2 center);
-    inset-block-end: anchor(--box1 start);
-    inset-inline-end: anchor(--box1 center);
+    inset-block-start: anchor(var(--static-element) end);
+    inset-inline-start: anchor(var(--static-element) center);
+    inset-block-end: anchor(var(--moving-element) start);
+    inset-inline-end: anchor(var(--moving-element) center);
   }
 }

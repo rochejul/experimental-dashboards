@@ -25,13 +25,32 @@
       <article class="box box--six"></article>
       <article class="box box--seven"></article>
 
-      <!-- Links declared after boxes for CSS anchor resolution -->
-      <div class="link link--box1-to-box2"></div>
-      <div class="link link--box3-to-box2 link--on-left-bottom"></div>
-      <div class="link link--box4-to-box2 link--on-right-top"></div>
-      <div class="link link--box5-to-box2"></div>
-      <div class="link link--box6-to-box2 link--on-above"></div>
-      <div class="link link--box7-to-box2 link--on-below"></div>
+      <!-- Links just be declared after boxes, because the anchor positioning is based on CSS vars and they are initialized when the DOM element is injected -->
+      <!-- The inline vars should be declared before the class attribute (otherwise the variable value will not be find) -->
+      <div
+        style="--moving-element: --box1; --static-element: --box2"
+        class="link link--left-top"
+      ></div>
+      <div
+        style="--moving-element: --box3; --static-element: --box2"
+        class="link link--left-bottom"
+      ></div>
+      <div
+        style="--moving-element: --box4; --static-element: --box2"
+        class="link link--right-top"
+      ></div>
+      <div
+        style="--moving-element: --box5; --static-element: --box2"
+        class="link link--right-bottom"
+      ></div>
+      <div
+        style="--moving-element: --box6; --static-element: --box2"
+        class="link link--on-above"
+      ></div>
+      <div
+        style="--moving-element: --box7; --static-element: --box2"
+        class="link link--on-below"
+      ></div>
     </section>
   </body>
 </html>

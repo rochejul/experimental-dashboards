@@ -112,16 +112,45 @@ body {
   min-block-size: 2px;
   position: absolute;
 
-  &.link--debug {
-    border: 1px solid black;
+  &.link--left-top {
+    /*Moving box on left top of static box*/
+    inset-block-start: anchor(var(--moving-element) center);
+    inset-inline-start: anchor(var(--moving-element) right);
+    inset-inline-end: anchor(var(--static-element) left);
+    inset-block-end: anchor(var(--static-element) center);
   }
 
-  &.link--on-right-top,
-  &.link--on-left-bottom {
+  &.link--left-bottom {
+    /*Moving box on left bottom of static box*/
     background-position:
       center,
       0 100%,
       100% 0;
+    inset-block-start: anchor(var(--static-element) center);
+    inset-inline-start: anchor(var(--moving-element) right);
+    inset-inline-end: anchor(var(--static-element) left);
+    inset-block-end: anchor(var(--moving-element) center);
+  }
+
+  &.link--right-top {
+    /*Moving box on right top of static box*/
+    background-position:
+      center,
+      0 100%,
+      100% 0;
+
+    inset-block-start: anchor(var(--moving-element) center);
+    inset-inline-start: anchor(var(--static-element) right);
+    inset-block-end: anchor(var(--static-element) center);
+    inset-inline-end: anchor(var(--moving-element) left);
+  }
+
+  &.link--right-bottom {
+    /*Moving box on right bottom of static box*/
+    inset-block-start: anchor(var(--static-element) center);
+    inset-inline-start: anchor(var(--static-element) right);
+    inset-inline-end: anchor(var(--moving-element) left);
+    inset-block-end: anchor(var(--moving-element) center);
   }
 
   &.link--on-above {
@@ -136,6 +165,28 @@ body {
       2px 50%,
       100% 2px,
       2px 50%;
+    inset-block-start: anchor(var(--moving-element) end);
+    inset-inline-start: anchor(var(--moving-element) center);
+    inset-inline-end: anchor(var(--static-element) center);
+    inset-block-end: anchor(var(--static-element) start);
+  }
+
+  &.link--on-above-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 100%,
+      center,
+      100% 0;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(var(--moving-element) end);
+    inset-block-end: anchor(var(--static-element) start);
+    inset-inline-start: anchor(var(--static-element) center);
+    inset-inline-end: anchor(var(--moving-element) center);
   }
 
   &.link--on-below {
@@ -150,47 +201,27 @@ body {
       2px 50%,
       100% 2px,
       2px 50%;
+    inset-block-start: anchor(var(--static-element) end);
+    inset-inline-start: anchor(var(--moving-element) center);
+    inset-block-end: anchor(var(--moving-element) start);
+    inset-inline-end: anchor(var(--static-element) center);
   }
 
-  &.link--box1-to-box2 {
-    inset-block-start: anchor(--box1 center);
-    inset-inline-start: anchor(--box1 right);
-    inset-inline-end: anchor(--box2 left);
-    inset-block-end: anchor(--box2 center);
-  }
-
-  &.link--box3-to-box2 {
-    inset-block-start: anchor(--box2 center);
-    inset-inline-start: anchor(--box3 right);
-    inset-inline-end: anchor(--box2 left);
-    inset-block-end: anchor(--box3 center);
-  }
-
-  &.link--box4-to-box2 {
-    inset-block-start: anchor(--box4 center);
-    inset-inline-start: anchor(--box2 right);
-    inset-block-end: anchor(--box2 center);
-    inset-inline-end: anchor(--box4 left);
-  }
-
-  &.link--box5-to-box2 {
-    inset-block-start: anchor(--box2 center);
-    inset-inline-start: anchor(--box2 right);
-    inset-inline-end: anchor(--box5 left);
-    inset-block-end: anchor(--box5 center);
-  }
-
-  &.link--box6-to-box2 {
-    inset-block-start: anchor(--box6 end);
-    inset-inline-start: anchor(--box6 center);
-    inset-inline-end: anchor(--box2 center);
-    inset-block-end: anchor(--box2 start);
-  }
-
-  &.link--box7-to-box2 {
-    inset-block-start: anchor(--box2 end);
-    inset-inline-start: anchor(--box7 center);
-    inset-block-end: anchor(--box7 start);
-    inset-inline-end: anchor(--box2 center);
+  &.link--on-below-right {
+    background-image:
+      linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+      linear-gradient(#000, #000);
+    background-position:
+      0% 0%,
+      center,
+      100% 100%;
+    background-size:
+      2px 50%,
+      100% 2px,
+      2px 50%;
+    inset-block-start: anchor(var(--static-element) end);
+    inset-inline-start: anchor(var(--static-element) center);
+    inset-block-end: anchor(var(--moving-element) start);
+    inset-inline-end: anchor(var(--moving-element) center);
   }
 }
