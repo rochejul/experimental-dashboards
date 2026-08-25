@@ -1,33 +1,26 @@
 {
-  "name": "@experimental-dashboards/showcase",
+  "name": "@experimental-dashboards/svg",
   "version": "1.0.0",
-  "description": "Showcase and live demos for experimental dashboards",
-  "private": true,
   "type": "module",
+  "description": "Using SVG for a dashboard",
   "scripts": {
-    "start": "parcel index.html demos/css-anchoring/*.html --port 3555 --https",
-    "dev:build": "npm run dev:clean && parcel build index.html demos/css-anchoring/*.html --dist-dir dist --public-url /experimental-dashboards/",
+    "start": "npx parcel index.html --port 3666 --https",
+    "dev:build": "npm run dev:clean && parcel build index.html --dist-dir dist --public-url ./",
     "dev:clean": "rm -rf ../../.parcel-cache dist",
     "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
     "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
     "dev:linting": "npm run dev:format && eslint ."
   },
   "//": {
-    "start": "Run a local web server with Parcel",
-    "dev:build": "Build showcase application for production with base public-url for GitHub Pages",
+    "start": "Run a local web server (with https) to show the project",
+    "dev:build": "Build the package demo with parcel",
     "dev:clean": "Clean build and parcel cache artifacts",
     "dev:format": "Check code formatting with Prettier",
     "dev:format:check": "Format code with Prettier",
     "dev:linting": "Format check with Prettier and lint files using ESLint"
   },
   "devDependencies": {},
-  "keywords": [
-    "dashboard",
-    "experiments",
-    "showcase",
-    "parcel",
-    "css-anchoring"
-  ],
+  "keywords": [],
   "author": {
     "name": "Julien Roche",
     "email": "roche.jul@gmail.com"
