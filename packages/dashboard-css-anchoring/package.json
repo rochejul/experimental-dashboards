@@ -4,8 +4,8 @@
   "type": "module",
   "description": "Using CSS anchoring for a dashboard",
   "scripts": {
-    "start": "npx parcel index.html --port 3555 --https",
-    "dev:build": "npm run dev:clean && parcel build index.html --dist-dir dist --public-url ./",
+    "start": "http-server -d --cors --port 3555 --ssl --cert cert.pem",
+    "dev:build": "npm run dev:clean",
     "dev:clean": "rm -rf ../../.parcel-cache dist",
     "dev:format": "prettier --check \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",
     "dev:format:check": "prettier --write \"./**/*.{ts,tsx,js,mjs,cjs,md}\" --ignore-path ../../.prettierignore",

@@ -78,5 +78,8 @@
     "npmversion": "2.0.5",
     "parcel": "2.16.4",
     "prettier": "3.9.6"
+  },
+  "dependencies": {
+    "http-server": "14.1.1"
   }
 }

@@ -17,15 +17,39 @@
     <div class="app__body grid">
       <details name="alpha" style="--n: 1" open>
         <summary>Static version</summary>
-        <iframe class="app__body__iframe" src="./app/static/index.html"></iframe>
+        <iframe
+          class="app__body__iframe"
+          src="/app/static/index.html"
+          name="static"
+          loading="eager"
+        ></iframe>
       </details>
-      <details name="alpha" style="--n: 2" open>
+      <details name="alpha" style="--n: 2">
         <summary>Configurable version</summary>
-        <iframe class="app__body__iframe" src="./app/configurable/index.html"></iframe>
+        <iframe
+          class="app__body__iframe"
+          src="/app/configurable/index.html"
+          name="configurable"
+          loading="lazy"
+        ></iframe>
       </details>
       <details name="alpha" style="--n: 3">
         <summary>Dynamic version</summary>
-        <iframe class="app__body__iframe" src="./app/dynamic/index.html"></iframe>
+        <iframe
+          class="app__body__iframe"
+          src="/app/dynamic/index.html"
+          name="dynamic"
+          loading="lazy"
+        ></iframe>
+      </details>
+      <details name="alpha" style="--n: 4">
+        <summary>Dynamic and automatic version</summary>
+        <iframe
+          class="app__body__iframe"
+          src="/app/position-fallbacks/index.html"
+          name="position-fallbacks"
+          loading="lazy"
+        ></iframe>
       </details>
     </div>
   </body>

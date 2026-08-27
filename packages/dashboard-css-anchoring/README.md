@@ -160,7 +160,7 @@ The corresponding CSS class (`link--left-top`, `link--on-above`, etc.) is applie
 
 ### Run Local Development Server
 
-Run the development server with HTTPS (using Parcel) on port 3555:
+Run the development server with HTTPS (using Http-Server) on port 3555:
 
 ```bash
 npm --workspace=packages/dashboard-css-anchoring start
@@ -177,7 +177,7 @@ Open your browser at `https://localhost:3555`.
 | Script                     | Description                                                           |
 | :------------------------- | :-------------------------------------------------------------------- |
 | `npm start`                | Starts local development server with HTTPS on port `3555`             |
-| `npm run dev:build`        | Builds production assets to `dist/` with Parcel                       |
+| `npm run dev:build`        | Builds production assets to `dist/` with Http-Server                  |
 | `npm run dev:format`       | Checks code formatting with Prettier                                  |
 | `npm run dev:format:check` | Formats code with Prettier                                            |
 | `npm run dev:linting`      | Runs Prettier format check and ESLint validation across package files |
@@ -192,6 +192,9 @@ Open your browser at `https://localhost:3555`.
 - [JavaScript Get Mouse Coordinates](https://screencoordinates.com/javascript-get-mouse-coordinates/)
 - [CSS Anchor Positioning Guide (CSS-Tricks)](https://css-tricks.com/css-anchor-positioning-guide/)
 - [Tether elements to each other with CSS anchor positioning (Chrome for Developers)](https://developer.chrome.com/blog/tether-elements-to-each-other-with-css-anchor-positioning)
+- [Using anchored container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries)
+- [Detect fallback positions with anchored container queries from Chrome 143](https://developer.chrome.com/blog/anchored-container-queries)
+- [Flexible Menu Animation with Anchored Container Queries](https://www.oidaisdes.org/blog/anchored-container-queries/)
 
 ---
 

@@ -1,3 +1,4 @@
+@import url(../reset.css);
 
 html,
 body {
@@ -78,7 +79,7 @@ body {
     border: 1px solid black;
   }
 
-   &.link--left-top {
+  &.link--left-top {
     /*Moving box on left top of static box*/
     inset-block-start: anchor(var(--moving-element) center);
     inset-inline-start: anchor(var(--moving-element) right);

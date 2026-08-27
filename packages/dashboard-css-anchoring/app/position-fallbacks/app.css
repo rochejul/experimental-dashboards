@@ -1,0 +1,204 @@
+@import url(../reset.css);
+
+html,
+body {
+  border: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  font: 1em sans-serif;
+}
+
+.app {
+  flex-direction: column;
+  height: 100%;
+
+  .app__title {
+    flex: 0 0 none;
+  }
+
+  .app__body {
+    background-color: lightskyblue;
+    border: 1px solid black;
+    flex: 1 1 auto;
+    position: relative;
+  }
+}
+
+.box {
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  z-index: 10;
+
+  &.box--one {
+    anchor-name: --box1;
+    background-color: lightgray;
+    cursor: pointer;
+    top: 25px;
+    left: 55px;
+  }
+
+  &.box--second {
+    anchor-name: --box2;
+    background-color: lightgreen;
+    pointer-events: none;
+    top: 185px;
+    left: 505px;
+  }
+}
+
+@position-try --link-left-bottom {
+  /*Moving box on left bottom of static box*/
+  inset-block-start: anchor(--box2 center);
+  inset-inline-start: anchor(--box1 center);
+  inset-inline-end: anchor(--box2 center);
+  inset-block-end: anchor(--box1 center);
+}
+
+@position-try --link-right-top {
+  /*Moving box on right top of static box*/
+  inset-block-start: anchor(--box1 center);
+  inset-inline-start: anchor(--box2 center);
+  inset-block-end: anchor(--box2 center);
+  inset-inline-end: anchor(--box1 center);
+}
+
+@position-try --link-right-bottom {
+  /*Moving box on right bottom of static box*/
+  inset-block-start: anchor(--box2 center);
+  inset-inline-start: anchor(--box2 center);
+  inset-inline-end: anchor(--box1 center);
+  inset-block-end: anchor(--box1 center);
+}
+
+@position-try --link-on-above {
+  inset-block-start: anchor(--box1 center);
+  inset-inline-start: anchor(--box1 center);
+  inset-inline-end: anchor(--box2 center);
+  inset-block-end: anchor(--box2 center);
+}
+
+@position-try --link-on-below {
+  inset-block-start: anchor(--box2 center);
+  inset-inline-start: anchor(--box1 center);
+  inset-block-end: anchor(--box1 center);
+  inset-inline-end: anchor(--box2 center);
+}
+
+.link {
+  min-block-size: 2px;
+  position: absolute;
+  container-type: anchored;
+
+  inset-block-start: anchor(--box1 center);
+  inset-inline-start: anchor(--box1 right);
+  inset-inline-end: anchor(--box2 left);
+  inset-block-end: anchor(--box2 center);
+
+  z-index: 1;
+  position-try:
+    --link-on-above, --link-right-top, --link-left-bottom, --link-on-below,
+    --link-right-bottom;
+
+  &.link--debug {
+    border: 1px solid black;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image:
+      linear-gradient(to bottom, black, black),
+      linear-gradient(to right, black, black),
+      linear-gradient(to bottom, black, black);
+    background-size:
+      2px,
+      50% 2px,
+      50% 2px;
+    background-position:
+      center,
+      top left,
+      bottom right;
+    background-repeat: no-repeat;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @container anchored(fallback: --link-left-bottom) {
+    &::before {
+      background-position:
+        0% 100%,
+        center,
+        100% 0%;
+      background-size:
+        2px 50%,
+        100% 2px,
+        2px 50%;
+    }
+  }
+
+  @container anchored(fallback: --link-on-above) {
+    &::before {
+      background-image:
+        linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+        linear-gradient(#000, #000);
+      background-position:
+        0 0,
+        center,
+        100% 100%;
+      background-size:
+        2px 50%,
+        100% 2px,
+        2px 50%;
+    }
+  }
+
+  @container anchored(fallback: --link-right-top) {
+    &::before {
+      background-image:
+        linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+        linear-gradient(#000, #000);
+      background-position:
+        0% 100%,
+        center,
+        100% 0;
+      background-size:
+        2px 50%,
+        100% 2px,
+        2px 50%;
+    }
+  }
+
+  @container anchored(fallback: --link-on-below) {
+    &::before {
+      background-image:
+        linear-gradient(#000, #000), linear-gradient(to right, #000, #000),
+        linear-gradient(#000, #000);
+      background-position:
+        0% 100%,
+        center,
+        100% 0%;
+      background-size:
+        2px 50%,
+        100% 2px,
+        2px 50%;
+    }
+  }
+
+  @container anchored(fallback: --link-right-bottom) {
+  }
+}
