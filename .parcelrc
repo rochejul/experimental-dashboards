@@ -9,7 +9,11 @@
       "@parcel/transformer-js"
     ]
   },
+  "packagers": {
+    "*.css": "@parcel/packager-raw"
+  },
   "optimizers": {
+    "*.{css}": [],
     "*.{js,mjs,cjs}": []
   }
 }
