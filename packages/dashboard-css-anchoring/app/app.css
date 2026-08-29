@@ -25,7 +25,7 @@ body {
     flex: 1 1 auto;
 
     & .app__body__iframe {
-      pointer-events: all;
+      pointer-events: auto;
       height: 100%;
       width: 100%;
     }
@@ -45,37 +45,37 @@ details {
   grid-row: 1 / span 2;
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
-}
-
-summary {
-  grid-column: var(--n) / span 1;
-  grid-row: 1;
-  display: grid;
-  padding: 1rem;
-  border-bottom: 2px solid dodgerblue;
-  cursor: pointer;
-  z-index: 1;
-  user-select: none;
-}
-
-details[open] {
   pointer-events: none;
-
-  &::details-content {
-    grid-row: 2;
-    grid-column: 1 / -1;
-    padding: 1rem;
-    border-bottom: 2px solid dodgerblue;
-  }
 
   &:not([open])::details-content {
     display: none;
   }
 
-  & :is(summary, .summary) {
-    border-bottom: 2px solid lightblue;
-    color: lightblue;
-    font-weight: bold;
+  &[open] {
+    &::details-content {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      padding: 1rem;
+      border-bottom: 2px solid dodgerblue;
+    }
+
+    & :is(summary, .summary) {
+      border-bottom: 2px solid lightblue;
+      color: lightblue;
+      font-weight: bold;
+    }
+  }
+
+  summary {
+    grid-column: var(--n) / span 1;
+    grid-row: 1;
+    display: grid;
+    padding: 1rem;
+    border-bottom: 2px solid dodgerblue;
+    cursor: pointer;
+    z-index: 1;
+    user-select: none;
+    pointer-events: auto;
   }
 }
 
